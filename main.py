@@ -2,6 +2,7 @@ import math
 
 
 class Cost:
+    @staticmethod
     def MSE(y, y_hat):
         assert len(y) == len(y_hat), "Number of elements does not match"
 
@@ -30,11 +31,13 @@ class Cost:
 
 
 class Activation:
+    @staticmethod
     def sigmoid(z):
         return 1 / (1 + math.exp(-z))
 
 
 class Optimizer:
+    @staticmethod
     def gd(alpha, x, y, w, hyp):
         assert len(x) == len(y), "Number of elements does not match"
         assert len(w) == len(x[0]), "Number of parameters does not match with number of x values"
@@ -56,6 +59,7 @@ class Optimizer:
 
         
 class Hypothesis:
+    @staticmethod
     def linear(w, x):
         assert len(x) == len(w), "Number of elements does not match"
         
