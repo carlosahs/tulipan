@@ -160,12 +160,17 @@ X_cols = len(X.columns)
 models = [[0] * X_cols for _ in range(len(iris_class))]
 errors = [[] for _ in range(len(iris_class))]
 
+tests = [None] * len(models)
+test_idx = 0
+
 print("Training...")
 
 for model, error, c in zip(models, errors, iris_class):
     Y = iris[["class"]] == c
     
     x_train, y_train, x_test, y_test = train_test_split(X, Y)
+
+    tests[test_idx] = (x_test, y_test)  # Store the test sets
     
     err = 1
     epoch = 0
@@ -185,6 +190,8 @@ for model, error, c in zip(models, errors, iris_class):
         error.append(err)
         
         epoch += 1
+
+    test_idx += 1
         
     print(c, err, epoch, "Done!")
 
@@ -197,3 +204,4 @@ for error, c in zip(errors, iris_class):
     
 ax.legend()
 plt.show()
+
