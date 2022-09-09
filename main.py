@@ -14,6 +14,7 @@ class Cost:
 
         return err / n
     
+    @staticmethod
     def logistic(y, y_hat):
         assert len(y) == len(y_hat), "Number of elements does not match"
         
