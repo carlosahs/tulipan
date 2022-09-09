@@ -158,7 +158,7 @@ def train_test_split(x, y, r=0.2):
 X_raw = iris.drop("class", axis=1)
 X = (X_raw - X_raw.min()) / (X_raw.max() - X_raw.min())  # Min-max scaling
 
-X["_ones"] = [1] * len(X)  # Add ones-column for bias parameter
+X["_bias"] = [1] * len(X)  # Add ones-column for bias parameter
 
 X_cols = len(X.columns)
 
